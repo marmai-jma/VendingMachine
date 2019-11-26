@@ -38,7 +38,7 @@ class VendingMachine{
     }
 
     addCoin(coin : Quarter | Dime | Half | Dollar) {
-        this.total = this.total + coin.value;
+        this.total = this.total + coin.value;   // ici on utilise le get value
         this.refreshView();
     }
 
@@ -91,9 +91,5 @@ class VendingMachine{
          })
          document.getElementById('products').innerHTML = html;
      }
-
- /**
-  * Crée les listeners d'evenements 
-  */
     
 }
