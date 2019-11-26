@@ -1,7 +1,15 @@
 ///<reference path ="coins.ts"/>
+///<reference path ="cell.ts"/>
+///<reference path ="product-factory.ts"/>
 /**
  * Fichier principal de l'application.
  */
+
+ enum VendingMachineSize {
+     Small = 6,
+     Medium = 9,
+     Large = 12
+ }
 class VendingMachine{
     total : number = 0;
 
@@ -11,16 +19,27 @@ class VendingMachine{
         new Quarter(),
         new Half(),
         new Dollar(),
-    ]
+    ];
 
-    constructor(){
+    cells : Cell[] =[];
+
+    constructor(size: VendingMachineSize){
+        //Remplit le distributeur avec 12 "cells"
+        for (let i = 0 ; i<size; i++){
+            // crée une nouvelle "cellule"
+            const cell =  new Cell(getProduct(),3);
+            // ajoute la nouvelle cellule au distributeur
+            this.cells.push(cell);
+        }
+
         this.refreshView();
         this.displayCoins();
-        this.ListenToEvents();
+        this.displayProducts();
     }
 
-    acceptCoin(coin : Quarter | Dime | Half | Dollar) {
+    addCoin(coin : Quarter | Dime | Half | Dollar) {
         this.total = this.total + coin.value;
+        this.refreshView();
     }
 
 /**
@@ -36,7 +55,7 @@ class VendingMachine{
              //Pour chaque coin...
 
              // créer balise <img> -- document.createElement('img)
-             let img = document.createElement('img');
+             const img = document.createElement('img');
 
              //Set son attribut "src" --BALISE.setAttribute('src',VALEUR)
              
@@ -44,8 +63,8 @@ class VendingMachine{
 
              //Ajoute un listener "click" sur l'image qui appelle acceptCoin()
             img.addEventListener('click',() => {
-                this.acceptCoin(coin);
-                this.refreshView();
+                this.addCoin(coin);
+        
             });
 
              //Insere l'image dans la page HTML
@@ -54,13 +73,27 @@ class VendingMachine{
          })
      }
 
+     displayProducts(){
+         let html = '';
+         //Pour chaque cellule du distrib, on génère de l'HTML
+         this.cells.forEach(cell => {
+             html=html+
+             `<div class="col-md-4 cell">
+             <div class="col-md-6 image">
+               <img src="${cell.product.category.getImageUrl()}" alt="${cell.product.name}">
+             </div>
+             <div class="col-md-6 productInfo">
+               <div>${cell.product.name}</div>
+               <h4>${cell.stock}</h4>
+               <h3>${cell.product.price} €</h3>
+             </div>
+           </div>`
+         })
+         document.getElementById('products').innerHTML = html;
+     }
+
  /**
   * Crée les listeners d'evenements 
   */
-    ListenToEvents(){
-        document.querySelector('button').addEventListener('click', ()=>{
-            this.acceptCoin(new Dollar());
-            this.refreshView();
-        })
-    }
+    
 }
