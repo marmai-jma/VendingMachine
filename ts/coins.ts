@@ -1,7 +1,7 @@
 /**
  * Liste des types de pièces de monnaie acceptées par le distributeur.
  */
-abstract class Coin {
+export abstract class Coin {
     //déclare une proprieté privée "value"
     private _value: number;
     private _image: string;
@@ -18,22 +18,22 @@ abstract class Coin {
 
 }
 
-class Quarter extends Coin{
+export class Quarter extends Coin{
     constructor(){super(0.25,'img/Quarter.png' );}
 }
     
 
 
-class Dime extends Coin{
+export class Dime extends Coin{
     constructor(){super(0.10,'img/Dime.png' );}
 }
 
-class Half extends Coin {
+export class Half extends Coin {
     constructor(){super(0.50,'img/Half.png' );}
 
 }
 
-class Dollar extends Coin {
+export class Dollar extends Coin {
     constructor(){super(1,'img/Dollar.jpg' );}
 
 }

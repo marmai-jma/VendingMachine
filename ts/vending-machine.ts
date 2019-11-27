@@ -1,16 +1,17 @@
-///<reference path ="coins.ts"/>
-///<reference path ="cell.ts"/>
-///<reference path ="product-factory.ts"/>
+import { Coin, Dime, Quarter, Half, Dollar } from "./coins";
+import { Cell } from "./cell";
+import { getProduct } from "./product-factory";
+
 /**
  * Fichier principal de l'application.
  */
 
- enum VendingMachineSize {
+ export enum VendingMachineSize {
      Small = 6,
      Medium = 9,
      Large = 12
  }
-class VendingMachine{
+export class VendingMachine{
     total : number = 0;
 
     // liste des pieces acceptées

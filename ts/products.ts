@@ -1,74 +1,75 @@
-///<reference path ="categories.ts"/>
+import { SodaCategory, NutsCategory, ChipsCategory, CandyCategory, CandyBarCategory } from "./categories";
+
 /**
  * Liste des produits vendus dans le distributeur.
  */
 
- interface Product{
+ export interface Product{
    name : string;
    price : number;
    category : any;
  }
-class CocaCola implements Product{
+ export class CocaCola implements Product{
     name = 'Coca-Cola';
     price = 2.3;
     category = new SodaCategory();
   }
   
-  class Fanta implements Product{
+  export class Fanta implements Product{
     name = 'Fanta';
     price = 2;
     category = new SodaCategory();
   }
   
-  class Sprite implements Product {
+  export class Sprite implements Product {
     name = 'Sprite';
     price = 1.80;
     category = new SodaCategory();
   }
   
-  class Peanuts implements Product {
+  export class Peanuts implements Product {
     name = 'Peanuts';
     price = 1.50;
     category = new NutsCategory();
   }
   
-  class Cashews implements Product {
+  export class Cashews implements Product {
     name = 'Cashews';
     price = 2.80;
     category = new NutsCategory();
   }
   
-  class Plain implements Product{
+  export class Plain implements Product{
     name = 'Plain';
     price = 2;
     category = new ChipsCategory();
   }
   
-  class Cheddar implements Product {
+  export class Cheddar implements Product {
     name = 'Cheddar';
     price = 2;
     category = new ChipsCategory();
   }
   
-  class Mints implements Product{
+  export class Mints implements Product{
     name = 'Mints';
     price = 1.30;
     category = new CandyCategory();
   }
   
-  class Gummies implements Product {
+  export class Gummies implements Product {
     name = 'Gummies';
     price = 1.90;
     category = new CandyCategory();
   }
   
-  class Hersey implements Product {
+  export class Hersey implements Product {
     name = 'Hersey\'s';
     price = 1.30;
     category = new CandyBarCategory();
   }
   
-  class MilkyWay implements Product{
+  export class MilkyWay implements Product{
     name = 'Milky Way';
     price = 1.80;
     category = new CandyBarCategory();

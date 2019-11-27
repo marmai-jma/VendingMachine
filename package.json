@@ -8,13 +8,14 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server":"live-server"
+    "server": "live-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "require.js": "^1.0.0"
   }
 }

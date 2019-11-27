@@ -1,8 +1,10 @@
-///<reference path ="products.ts"/>
+
+import { Product, CocaCola, Fanta, Sprite, Peanuts, Cashews, Plain, Cheddar, Mints, Gummies, Hersey, MilkyWay } from "./products";
+
 /***
  * Fonction factory qui renvoie des instances de produits aléatoirement.
  */
-function getProduct() : Product {
+export function getProduct() : Product {
     const random = Math.floor(Math.random() * 11);
     switch (random) {
       case 0: return new CocaCola();

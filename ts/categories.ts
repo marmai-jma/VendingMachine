@@ -1,35 +1,35 @@
 /**
  * Liste des catégories de produits.
  */
-class SodaCategory {
+export class SodaCategory {
     name = 'Soda';
     getImageUrl() {
       return 'img/SodaCan.png';
     }
   }
   
-  class NutsCategory {
+export class NutsCategory {
     name = 'Nuts';
     getImageUrl () {
       return 'img/Nuts.png';
     }
   }
   
-  class ChipsCategory {
+export class ChipsCategory {
     name = 'Potato chips';
     getImageUrl () {
       return 'img/Chips.png';
     }
   }
   
-  class CandyCategory {
+export class CandyCategory {
     name = 'Candy';
     getImageUrl () {
       return 'img/Candy.png';
     }
   }
   
-  class CandyBarCategory {
+export class CandyBarCategory {
     name = 'Candy bar';
     getImageUrl () {
       return 'img/CandyBar.png';
