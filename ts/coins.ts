@@ -17,16 +17,15 @@ abstract class Coin {
     
 
 }
+
 class Quarter extends Coin{
     constructor(){super(0.25,'img/Quarter.png' );}
-    }
-    
 }
+    
+
 
 class Dime extends Coin{
     constructor(){super(0.10,'img/Dime.png' );}
-    }
-
 }
 
 class Half extends Coin {

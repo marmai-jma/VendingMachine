@@ -14,7 +14,7 @@ class VendingMachine{
     total : number = 0;
 
     // liste des pieces acceptées
-    acceptedCoins : Array <Quarter | Dime | Half | Dollar> = [
+    acceptedCoins : Array <Coin> = [
         new Dime(),
         new Quarter(),
         new Half(),
@@ -37,7 +37,7 @@ class VendingMachine{
         this.displayProducts();
     }
 
-    addCoin(coin : Quarter | Dime | Half | Dollar) {
+    addCoin(coin : Coin) {
         this.total = this.total + coin.value;   // ici on utilise le get value
         this.refreshView();
     }
